@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2009-2017 ZeroC, Inc. All rights reserved. -->
+<ProjectSchemaDefinitions xmlns="clr-namespace:Microsoft.Build.Framework.XamlTypes;assembly=Microsoft.Build.Framework">
+  <Rule Name="SliceCompile" PageTemplate="tool" DisplayName="Slice Compile" Order="1" SwitchPrefix="">
+
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" Label="SliceCompile" HasConfigurationCondition="false" />
+    </Rule.DataSource>
+
+    <Rule.Categories>
+      <Category Name="General" DisplayName="General"/>
+    </Rule.Categories>
+
+    <StringProperty Name="SliceCompileOutputDir"
+                    DisplayName="Output Directory"
+                    Description="Directory where generated files are created."
+                    Subtype="folder"
+                    Category="General"
+                    Switch="--output-dir">
+      <StringProperty.DataSource>
+        <DataSource Persistence="ProjectFile" ItemType="" Label="SliceCompile" HasConfigurationCondition="false" />
+      </StringProperty.DataSource>
+    </StringProperty>
+
+  </Rule>
+
+  <ItemType Name="SliceCompile" DisplayName="Build Slice Files" />
+  <FileExtension Name="*.ice" ContentType="SliceCompile" />
+  <ContentType Name="SliceCompile" DisplayName="Build Slice Files" ItemType="SliceCompile" />
+
+</ProjectSchemaDefinitions>
